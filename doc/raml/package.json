@@ -41,7 +41,7 @@
   },
   "devDependencies": {
     "jscomplex": "^1.0.2",
-    "serve": "^1.4.0",
+    "serve": "^11.3.1",
     "watch": "^0.17.1",
     "xo": "^0.14.0"
   }
