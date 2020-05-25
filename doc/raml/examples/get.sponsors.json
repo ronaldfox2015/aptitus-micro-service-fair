@@ -1,0 +1,24 @@
+[
+  {
+    "id": 170,
+    "companyName": "Jair, Goyette and Rolfson",
+    "category": "Empleo",
+    "image": "https://dev.cde.expo.aptitus.g3c.pe/sponsor/fair-fqq33a951a754662d3a9132d280dc2f6bf.png",
+    "url": "https://maqqrcia.biz",
+    "coords": {
+      "desktop": "125212,105,1260,96,1277,87,1307,83,1341,89,1374,101,1399,117,1401,125,1389,132,1361,141,1316,142,1285,135,1266,126,1255,115",
+      "tablet": "744,41121,786,411,786,542,744,542"
+    }
+  },
+  {
+    "id": 171,
+    "companyName": "Company, Goyette and Rolfson",
+    "category": "Educacion",
+    "image": "https://dev.cde.expo.aptitus.g3c.pe/sponsor/fair-fqq33a951a754662d3a9132d280dc2f6bf.png",
+    "url": "https://marcia.biz",
+    "coords": {
+      "desktop": "1252,105,1260,96,1277,87,1307,83,1341,89,1374,101,1399,117,1401,125,1389,132,1361,141,1316,142,1285,135,1266,126,1255,115",
+      "tablet": "744,421,786,411,786,542,744,542"
+    }
+  }
+]

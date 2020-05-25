@@ -1,0 +1,26 @@
+Aptitus\Fairs\Domain\Model\Fairs\StandTypeAmphitryon:
+    type: entity
+    table: stand_type_amphitryon
+    name: StandTypeAmphitryon
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    manyToOne:
+        standType:
+            targetEntity: Aptitus\Fairs\Domain\Model\Fairs\StandType
+            joinColumn:
+                stand_type_id:
+                    referencedColumnName: id
+                nullable: false
+        standAmphitryon:
+            targetEntity: Aptitus\Fairs\Domain\Model\Fairs\StandAmphitryon
+            joinColumn:
+                stand_amphitryon_id:
+                    referencedColumnName: id
+                nullable: false

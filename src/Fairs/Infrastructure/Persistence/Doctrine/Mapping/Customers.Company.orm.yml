@@ -1,0 +1,46 @@
+Aptitus\Fairs\Domain\Model\Customers\Company:
+    type: entity
+    table: company
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        ruc:
+            nullable: true
+            type: string
+            length: 11
+        tradeName:
+            nullable: true
+            column: trade_name
+            type: string
+            length: 100
+        businessName:
+            column: business_name
+            type: string
+            length: 100
+        slug:
+            nullable: true
+            column: slug
+            type: string
+            length: 200
+        image:
+            type: string
+            length: 200
+        state:
+            type: boolean
+            options:
+                default: true
+        latitude:
+            type: float
+        longitude:
+            type: float
+        category:
+            type: string
+            length: 100
+    lifecycleCallbacks: {  }

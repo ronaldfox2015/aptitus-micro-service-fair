@@ -1,0 +1,22 @@
+Aptitus\Fairs\Domain\Model\Fairs\StandType:
+    type: entity
+    table: stand_type
+    name: StandType
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            nullable: true
+            type: string
+            length: 10
+        state:
+            type: boolean
+            options:
+                default: true

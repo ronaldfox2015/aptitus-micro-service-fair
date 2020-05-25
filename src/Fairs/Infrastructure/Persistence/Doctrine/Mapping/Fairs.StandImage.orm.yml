@@ -1,0 +1,27 @@
+Aptitus\Fairs\Domain\Model\Fairs\StandImage:
+    type: entity
+    table: stand_image
+    name: StandImage
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            length: 100
+        type:
+            type: string
+            length: 20
+    manyToOne:
+        stand:
+            targetEntity: Aptitus\Fairs\Domain\Model\Fairs\Stand
+            joinColumn:
+                stand_id:
+                    referencedColumnName: id
+                nullable: false

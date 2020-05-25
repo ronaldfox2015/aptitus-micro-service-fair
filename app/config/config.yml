@@ -1,0 +1,21 @@
+imports:
+    - { resource: parameters.yml }
+    - { resource: services.yml }
+    - { resource: doctrine.yml }
+    - { resource: aws.yml }
+    - { resource: security.yml }
+    - { resource: cors.yml }
+    - { resource: model_stands.yml }
+
+framework:
+    secret: '%secret%'
+    assets: ~
+    http_method_override: true
+    templating:
+        engines: ['twig']
+    validation: { enabled: true, enable_annotations: true}
+
+twig:
+    debug:            "%kernel.debug%"
+    strict_variables: "%kernel.debug%"
+    exception_controller: apt.exception.controller:showAction

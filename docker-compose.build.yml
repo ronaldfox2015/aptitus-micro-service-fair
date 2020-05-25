@@ -1,0 +1,18 @@
+version: '2'
+
+services:
+    base:
+      image: ronaldgcr/apt_fair_backend:base
+      build:
+        context: ./docker/base/
+    nginx:
+       image: ronaldgcr/apt_fair_backend:nginx
+       build:
+        context: ./docker/nginx
+    cli:
+      extends:
+        file: docker-compose.tasks.yml
+        service: cli
+      build:
+        context: ./docker/cli/
+

@@ -1,0 +1,24 @@
+Aptitus\Fairs\Domain\Model\Fairs\ImageGallery:
+    type: entity
+    table: image_gallery
+    name: ImageGallery
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            length: 100
+    manyToOne:
+        companyFair:
+            targetEntity: Aptitus\Fairs\Domain\Model\Fairs\CompanyFair
+            joinColumn:
+                company_fair_id:
+                    referencedColumnName: id
+                nullable: false

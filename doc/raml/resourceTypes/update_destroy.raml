@@ -1,0 +1,8 @@
+put:
+  description: Update a <<typeName>>
+  is: [ hasRequestItem: { typeName: <<typeName>> }, hasResponseItem: { typeName: Message }, hasNotFound ]
+delete:
+  description: Delete a <<typeName>>
+  is: [ hasNotFound ]
+  responses:
+    204:

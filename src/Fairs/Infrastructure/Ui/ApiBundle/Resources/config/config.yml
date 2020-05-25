@@ -1,0 +1,7 @@
+imports:
+  - {resource: guzzle.yml }
+  - {resource: services.yml }
+  - {resource: event.yml }
+
+parameters:
+  app_version: 1.0

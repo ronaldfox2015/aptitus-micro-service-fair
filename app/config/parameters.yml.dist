@@ -1,0 +1,73 @@
+# This file is a "template" of what your parameters.yml file should look like
+# Set parameters here that may be different on each deployment target of the app, e.g. development, staging, production.
+# http://symfony.com/doc/current/best_practices/configuration.html#infrastructure-related-configuration
+parameters:
+    ## Base url
+    base_url: v1/fair
+
+    ## Database
+    database_host: vp1-aur-001.cluster-cy9ykxyihkzf.eu-west-1.rds.amazonaws.com
+    database_port: 3306
+    database_name: db_apt_feria_dev
+    database_user: usr_aptfer_dev
+    database_password: SqaW4mQ25hCIIpH9SVpY
+
+    ## Memcache
+    memcache_host: 40.0.30.130
+    memcache_port: 11218
+
+    ## Aws region
+    aws_default_region: ap-northeast-1
+
+    ## Aws CloudWatchLog
+    aws_cloudwatchlog_credentials_key: AKIAJCOOV6JKXYFNYATQ
+    aws_cloudwatchlog_credentials_secret: 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
+
+    ## Aws S3
+    aws_s3_region: eu-west-1
+    aws_s3_credentials_key: AKIAJCOOV6JKXYFNYATQ
+    aws_s3_credentials_secret: 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
+    aws_s3_bucket: dev.cde.expo.aptitus.g3c.pe
+    aws_s3_cde: https://dev.cde.expo.aptitus.g3c.pe/
+    aws_s3_cds: 'https://dev.cds.expo.aptitus.g3c.pe/'
+    aws_s3_elements: ''
+    aws_s3_folders:
+        monitor: /monitor
+        totem: /totem
+        banderole_1: /banderole_1
+        banderole: /banderole
+        poster_1: /poster_1
+        poster: /poster
+        poster_2: /poster_2
+        top: /top
+        counter: /counter
+        gallery: /gallery
+        document: /document
+        banderole_2: /banderole_2
+        logo: /logo
+        feed: /feed
+        sponsor: /sponsor
+
+    ## Application Log
+    app_log_group:   fair.dev.aptitus.com
+    app_log_stream:  /logs/%app_log_group%/app.log
+    app_log_retention_days: 14
+
+    # A secret key that's used to generate certain security-related tokens
+    secret:  440733a87b46809f431064d8e608ef33fd886b7b
+    secret_token_jwt: aptitus-93005357854451
+
+    # Microservices Url
+    ws_services: http://dev.services.aptitus.com
+
+    # Static Version
+    static_version: 41
+
+    # Aptitus API
+    api_url: 'https://api.dev.1a.aptitus.com/'
+    api_access_token: 'Bearer 60800ba105b539eefe537f654b696881c6b4be3f'
+
+    # Paths
+    app_tmp_dir: var
+    education_url: 'http://dev1amaseducacion.aptitus.com/'
+    expo_aptitus_host: 'https://dev4c.expo.aptitus.com'

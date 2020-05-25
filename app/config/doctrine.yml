@@ -1,0 +1,53 @@
+# Doctrine Configuration
+services:
+   Doctrine\ORM\EntityManager:
+     alias: doctrine.orm.entity_manager
+
+doctrine:
+    dbal:
+        driver:   pdo_mysql
+        host:     "%database_host%"
+        port:     "%database_port%"
+        dbname:   "%database_name%"
+        user:     "%database_user%"
+        password: "%database_password%"
+        charset:  UTF8
+        schema_filter: /^(?!dbversion)/ # No tiene clave primaria
+        server_version: 5.6
+        mapping_types:
+          enum: string
+          set: string
+          varbinary: string
+          tinyblob: text
+          bit: smallint
+    orm:
+        auto_generate_proxy_classes: "%kernel.debug%"
+        auto_mapping: true
+        naming_strategy: doctrine.orm.naming_strategy.underscore
+        metadata_cache_driver:
+            type: memcache
+            host: "%memcache_host%"
+            port: "%memcache_port%"
+            instance_class: Memcached
+            class: Doctrine\Common\Cache\MemcacheCache
+        query_cache_driver:
+            type: memcache
+            host: "%memcache_host%"
+            port: "%memcache_port%"
+            instance_class: Memcached
+            class: Doctrine\Common\Cache\MemcacheCache
+        result_cache_driver:
+            type: memcache
+            host: "%memcache_host%"
+            port: "%memcache_port%"
+            instance_class: Memcached
+            class: Doctrine\Common\Cache\MemcacheCache
+        second_level_cache:
+            enabled:  true
+            log_enabled: true
+        mappings:
+            fairs:
+                type: yml
+                dir:  '%kernel.root_dir%/../src/Fairs/Infrastructure/Persistence/Doctrine/Mapping'
+                prefix: Aptitus\Fairs\Domain\Model
+                alias: Fairs

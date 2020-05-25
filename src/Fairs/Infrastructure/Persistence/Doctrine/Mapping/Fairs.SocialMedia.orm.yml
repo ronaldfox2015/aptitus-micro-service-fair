@@ -1,0 +1,27 @@
+Aptitus\Fairs\Domain\Model\Fairs\SocialMedia:
+    type: entity
+    table: social_media
+    name: SocialMedia
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        link:
+            type: string
+            length: 100
+        type:
+            type: string
+            length: 100
+    manyToOne:
+        companyFair:
+            targetEntity: Aptitus\Fairs\Domain\Model\Fairs\CompanyFair
+            joinColumn:
+                company_fair_id:
+                    referencedColumnName: id
+                nullable: false

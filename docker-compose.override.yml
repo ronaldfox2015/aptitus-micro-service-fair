@@ -1,0 +1,23 @@
+version: '2'
+
+services:
+  nginx:
+    volumes:
+      - ./:/app/
+      - ./logs/nginx/:/var/log/nginx/
+    extra_hosts:
+      - "local.services.aptitus.com:172.18.60.1"
+    ports:
+      - 83:80
+  memcached:
+    ports:
+      - 11216:11211
+  mysql:
+     environment:
+       MYSQL_ROOT_PASSWORD: 1234
+       MYSQL_DATABASE: mdb_apt_fairs
+     ports:
+       - 3307:3306
+     volumes:
+       - ./docker/mysql:/docker-entrypoint-initdb.d
+     command: mysqld --sql_mode=""

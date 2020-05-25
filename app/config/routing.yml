@@ -1,0 +1,3 @@
+api_payment:
+    resource: "@ApiBundle/Controller/"
+    prefix:   "%base_url%"

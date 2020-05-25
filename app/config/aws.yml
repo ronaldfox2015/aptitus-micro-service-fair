@@ -1,0 +1,18 @@
+aws:
+    version: latest
+    S3:
+        version: latest
+        region: '%aws_s3_region%'
+        credentials:
+            key: '%aws_s3_credentials_key%'
+            secret: '%aws_s3_credentials_secret%'
+        bucket: '%aws_s3_bucket%'
+        elements: '%aws_s3_elements%'
+    CloudWatchLogs:
+        version: latest
+        region: '%aws_default_region%'
+        credentials:
+           key: '%aws_cloudwatchlog_credentials_key%'
+           secret: '%aws_cloudwatchlog_credentials_secret%'
+
+    region: '%aws_default_region%'

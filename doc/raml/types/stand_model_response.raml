@@ -1,0 +1,119 @@
+properties:
+  message: string
+  data:
+    type: object
+    description: |
+      Rules: positions, sizes, images, colors and view orders by model of stand.
+example:
+  message: "Se obtuvo la información del modelo de stand correctamente."
+  data: {
+    "imageStandsSize": 8,
+    "height": 454,
+    "width": 850,
+    "drawOrder": [
+      {
+        "type": "image",
+        "alias": "imageBase"
+      },
+      {
+        "type": "image",
+        "alias": "amphitryon"
+      },
+      {
+        "type": "rectangle",
+        "alias": "top"
+      },
+      {
+        "type": "image",
+        "alias": "logo_top"
+      },
+      {
+        "type": "image",
+        "alias": "poster_1"
+      },
+      {
+        "type": "image",
+        "alias": "poster_2"
+      },
+      {
+        type: "image",
+        alias: "monitor"
+      },
+      {
+        "type": "image",
+        "alias": "counter"
+      },
+      {
+        "type": "image",
+        "alias": "totem"
+      }
+    ],
+    "imageStands": {
+      "imageBase": {
+        "source": "http://localhost:4200/assets/img/stands/plata1_full.png",
+        "position_x": 0,
+        "position_y": 0,
+        "size_width": 1,
+        "size_height": 1
+      },
+      "amphitryon": {
+        "source": "",
+        "position_x": 487,
+        "position_y": 125,
+        "size_width": 0.09,
+        "size_height": 0.65
+      },
+      "logo_top": {
+        "source": "http://localhost:4200/assets/img/tmp/image_logo_top.jpg",
+        "position_x": 126,
+        "position_y": 43.5,
+        "size_width": 0.705,
+        "size_height": 0.11
+      },
+      "poster_1": {
+        "source": "http://localhost:4200/assets/img/tmp/image_poster_1.jpg",
+        "position_x": 37.5,
+        "position_y": 173,
+        "size_width": 0.111,
+        "size_height": 0.19
+      },
+      "poster_2": {
+        "source": "http://localhost:4200/assets/img/tmp/image_poster_1.jpg",
+        "position_x": 37.5,
+        "position_y": 279,
+        "size_width": 0.111,
+        "size_height": 0.19
+      },
+      "monitor": {
+        "source": "http://localhost:4200/assets/img/tmp/image_monitor.jpg",
+        "position_x": 184.5,
+        "position_y": 144,
+        "size_width": 0.236,
+        "size_height": 0.265
+      },
+      "counter": {
+        "source": "http://localhost:4200/assets/img/tmp/image_counter.jpg",
+        "position_x": 478.4,
+        "position_y": 318.5,
+        "size_width": 0.142,
+        "size_height": 0.164
+      },
+      "totem": {
+        "source": "http://localhost:4200/assets/img/tmp/image_totem.jpg",
+        "position_x": 736,
+        "position_y": 244,
+        "size_width": 0.107,
+        "size_height": 0.396
+      }
+    },
+    "pathsStands": {
+      "top": {
+        "width": 787.5,
+        "height": 96.8,
+        "posX": 146,
+        "posY": 39,
+        "color": "rgba(122,24,10,1)",
+        "type": "color_1"
+      }
+    }
+  }

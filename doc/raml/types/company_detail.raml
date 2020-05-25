@@ -1,0 +1,176 @@
+properties:
+  document_number:
+    type: string
+    maxLength: 11
+    description: Field "RUC".
+  trade_name:
+    type: string
+    minLength: 10
+    maxLength: 100
+    description: Field "Empresa".
+  business_name:
+    type: string
+    minLength: 10
+    maxLength: 100
+    description: Field "Razón Social".
+  latitude?:
+    type: number
+    description: Field "Latitud".
+  longitude?:
+    type: number
+    description: Field "Longitud".
+  logo:
+    type: string
+    description: Field "Logo".
+    maxLength: 200
+  category:
+    type: string
+    enum: [ Empleo, Educacion ]
+    description: Field "Rubro".
+  industry_id:
+    type: integer
+    description: Field "Industria".
+  stand:
+    type: object
+    description: |
+      Field "Stand".
+
+      Parameter [image][type] you accept only values ( image_monitor, image_totem, image_banderole_1, image_banderole_2, image_poster_1, image_poster_2, image_top, image_counter ).
+  profile:
+    type: array
+    description: |
+      Group of fields "Perfil Institucional".
+
+      Parameter [title] minLength and maxLength is 3 and 50.
+  social_media:
+    type: array
+    description: |
+      Group of fields "Redes Sociales".
+
+      Parameter [link] minLength and maxLength is 10 and 100.
+
+      Parameter [name] you accept only values (Facebook, Linkedin, Twitter, Youtube, Google+, Pinterest or Instagram).
+  image_gallery:
+    type: array
+    description: Group of fields "Galería de Imágenes".
+  document:
+    type: array
+    description: Group of fields "Descargables".
+  control:
+    type: object
+    description: |
+    Agree company_id to do not confuse with company_fair_id
+
+example:
+  document_number: "20414989277"
+  trade_name: "ATENTO DEL PERU"
+  business_name: "TELEATENTO DEL PERU S.A.C"
+  logo: "https://dev.cde.expo.aptitus.g3c.pe/logo/RTIUR546RT546REEyutsdds42DQA.jpg"
+  category: "Empleo"
+  industry_id: 1
+  stand: {
+    type_id: 1,
+    model_id: 4,
+    amphitryon: 3,
+    colors: {
+      "color_1": "#2abf2a",
+      "color_2": "#0027ea"
+    },
+    images: [
+      {
+        "name": "5e8edf5ef2bdeb1bd697ed5c4e6aff82.png",
+        "link": "https://cdn.expo.aptitus.com/images/5e8edf5ef2bdeb1bd697ed5c4e6aff82.png",
+        "type": "image_monitor"
+      },
+      {
+        "name": "5e8edf5ef2bdeb1bd697ed5c4e6aff82.png",
+        "link": "https://cdn.expo.aptitus.com/images/5e8edf5ef2bdeb1bd697ed5c4e6aff82.png",
+        "type": "image_totem"
+      },
+      {
+        "name": "5e8edf5ef2bdeb1bd697ed5c4e6aff82.png",
+        "link": "https://cdn.expo.aptitus.com/images/5e8edf5ef2bdeb1bd697ed5c4e6aff82.png",
+        "type": "image_banderole_1"
+      },
+      {
+        "name": "5e8edf5ef2bdeb1bd697ed5c4e6aff82.png",
+        "link": "https://cdn.expo.aptitus.com/images/5e8edf5ef2bdeb1bd697ed5c4e6aff82.png",
+        "type": "image_banderole_2"
+      },
+      {
+        "name": "5e8edf5ef2bdeb1bd697ed5c4e6aff82.png",
+        "link": "https://cdn.expo.aptitus.com/images/5e8edf5ef2bdeb1bd697ed5c4e6aff82.png",
+        "type": "image_top"
+      },
+      {
+        "name": "5e8edf5ef2bdeb1bd697ed5c4e6aff82.png",
+        "link": "https://cdn.expo.aptitus.com/images/5e8edf5ef2bdeb1bd697ed5c4e6aff82.png",
+        "type": "image_counter"
+      }
+    ],
+    video: "https://www.youtube.com/watch?v=5o_nExedezw"
+  }
+  profile: [
+    {
+      "title": "Misión",
+      "description": "Misión de nuestra empresa en llevar a cabo..."
+    },
+    {
+      "title": "Nuestros Productos",
+      "description": "Nuestros productos respetan los estándares más altos de calidad ISO 9000..."
+    }
+  ]
+  social_media: [
+    {
+      "link": "https://www.facebook.com/zuck",
+      "name": "Facebook"
+    },
+    {
+      "link": "https://www.youtube.com/watch?v=5o_nExedezw",
+      "name": "Youtube"
+    }
+  ]
+  image_gallery: [
+    {
+      "name": "5e8edf5ef2bdeb1bd697ed5c4e6aff82.png",
+      "link": "https://cdn.expo.aptitus.com/images/5e8edf5ef2bdeb1bd697ed5c4e6aff82.png"
+    },
+    {
+      "name": "5e8edf5ef2bdeb1bd697ed5c4e6aff82.png",
+      "link": "https://cdn.expo.aptitus.com/images/5e8edf5ef2bdeb1bd697ed5c4e6aff82.png"
+    }
+  ]
+  document: [
+    {
+      "title": "Brochure 2017",
+      "name": "5e8edf5ef2bdeb1bd697ed5c4e6aff82.docx",
+      "link": "https://cdn.expo.aptitus.com/images/5e8edf5ef2bdeb1bd697ed5c4e6aff82.docx"
+    },
+    {
+      "title": "Perfil Institucional",
+      "name": "5e8edf5ef2bdeb1bd697ed5c4e6aff82.xls",
+      "link": "https://cdn.expo.aptitus.com/images/5e8edf5ef2bdeb1bd697ed5c4e6aff82.xls"
+    }
+  ]
+  control: {
+    next: {
+      "id": 2,
+      "name": "BANCO HIPOTECARIO",
+      "slug": "banco-hipotecario2",
+      "image": "fair-920c93f7f8696ee196352f29a28b0db3.png",
+      "category": "Empleo",
+      "document_number": "20100041872",
+      "model": "Modelo 3",
+      "stand": "ORO"
+    },
+    previous: {
+      "id": 63,
+      "name": "Tuesta Crisanto, Maribel",
+      "slug": "luis-mercado-medina",
+      "image": "fair-27d130bb4ac0978d77399d57bfd221d3.jpg",
+      "category": "Empleo",
+      "document_number": "10230203267",
+      "model": "Modelo 4",
+      "stand": "ORO"
+    }
+  }

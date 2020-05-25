@@ -1,0 +1,6 @@
+get:
+  description: Get a <<typeName>>
+  is: [ hasResponseItem: { typeName: <<typeName>>Detail }, hasNotFound ]
+put:
+  description: Update a <<typeName>>
+  is: [ hasRequestItem: { typeName: <<typeName>>Request }, hasResponseItem: { typeName: Message }, hasNotFound ]

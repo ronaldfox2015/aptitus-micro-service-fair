@@ -1,0 +1,38 @@
+Aptitus\Fairs\Domain\Model\Fairs\Stand:
+    type: entity
+    table: stand
+    name: Fair
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    manyToOne:
+        standType:
+            targetEntity: Aptitus\Fairs\Domain\Model\Fairs\StandType
+            joinColumn:
+                company_fair_id:
+                    referencedColumnName: id
+                nullable: false
+        standModel:
+            targetEntity: Aptitus\Fairs\Domain\Model\Fairs\StandModel
+            joinColumn:
+                stand_model_id:
+                    referencedColumnName: id
+                nullable: false
+        companyFair:
+            targetEntity: Aptitus\Fairs\Domain\Model\Fairs\CompanyFair
+            joinColumn:
+                company_fair_id:
+                    referencedColumnName: id
+                nullable: false
+        standAmphitryon:
+            targetEntity: Aptitus\Fairs\Domain\Model\Fairs\StandAmphitryon
+            joinColumn:
+                stand_amphitryon_id:
+                    referencedColumnName: id
+                nullable: false

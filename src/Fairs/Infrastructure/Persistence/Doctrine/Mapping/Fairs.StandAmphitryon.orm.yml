@@ -1,0 +1,22 @@
+Aptitus\Fairs\Domain\Model\Fairs\StandAmphitryon:
+    type: entity
+    table: stand_amphitryon
+    name: StandAmphitryon
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            nullable: true
+            type: string
+            length: 20
+        state:
+            type: boolean
+            options:
+                default: true

@@ -1,0 +1,170 @@
+parameters:
+  aws.s3:
+    bucket: '%aws_s3_bucket%'
+    folder: '%aws_s3_elements%'
+    cde: '%aws_s3_cde%'
+    folders: '%aws_s3_folders%'
+  app:
+    tmp_dir: '%kernel.project_dir%/%app_tmp_dir%'
+    expo_aptitus_host: '%expo_aptitus_host%'
+  fair_log:
+       storage: 'cloudwatch'
+       options:
+          log:
+            groupName:     '%app_log_group%'
+            streamName:    '%app_log_stream%'
+            retentionDays: '%app_log_retention_days%'
+
+services:
+  encrypt.jwt.service:
+      class: Aptitus\Fairs\Infrastructure\Services\Encrypt\Jwt
+      arguments: ['%secret_token_jwt%']
+  login.service:
+      class: Aptitus\Fairs\Application\User\LoginService
+      arguments: ['@user.repository', '@security.password_encoder', '@encrypt.jwt.service']
+  file.service:
+      class: Aptitus\Fairs\Application\File\FileService
+      arguments: ['@s3.file', '%aws.s3%']
+  company.query.service:
+      class: Aptitus\Fairs\Application\Customers\CompanyService
+      arguments: ['@company.repository', '@company_fair.repository']
+  company.management.service:
+      class: Aptitus\Fairs\Application\Fairs\Company\CompanyManagementService
+      arguments: ['@stand_type.service', '@company.repository', '@company_fair.repository', '@fair.repository', '@stand.repository', '@stand_type.repository', '@stand_model.repository', '@stand_amphitryon.repository', '@stand_color.repository', '@stand_image.repository', '@stand_video.repository', '@profile.repository', '@social_media.repository', '@image_gallery.repository', '@document.repository']
+  transaction.company.service:
+      class: Aptitus\Fairs\Application\Fairs\Company\TransactionCompanyService
+      arguments: ['@company.management.service', '@doctrine.orm.entity_manager']
+  fairs.company.query.service:
+      class: Aptitus\Fairs\Application\Fairs\CompanyQueryService
+      arguments: ['@company.repository', '@company.fair.repository', '@stand_color.repository', '@image_gallery.repository', '@document.repository', '@stand_image.repository', '@stand_video.repository', '@profile.repository', '@social_media.repository', '@stand.repository']
+      calls:
+        - [getConfig, ['%aws.s3%']]
+  sponsor.management.service:
+      class: Aptitus\Fairs\Application\Fairs\Sponsor\SponsorManagementService
+      arguments: ['@sponsor.repository', '@sponsor.fair.repository', '@fair.repository']
+      calls:
+        - [getConfig, ['%aws.s3%']]
+
+  log.service:
+      class: Aptitus\Fairs\Infrastructure\Services\LoggerService
+      arguments: ['@aws.cloudwatchlogs', '%fair_log%']
+
+  # Repository
+  Aptitus\Fairs\Domain\Model\Customers\JobSearchRepository: "@http.job_search.repository"
+
+  user.repository:
+      class: Aptitus\Fairs\Infrastructure\Persistence\Doctrine\DoctrineUserPer
+      arguments: ['@doctrine.orm.entity_manager', 'Aptitus\Fairs\Domain\Model\Users\User']
+  fair.repository:
+      class: Aptitus\Fairs\Infrastructure\Persistence\Doctrine\DoctrineFairRepository
+      arguments: ['@doctrine.orm.entity_manager', 'Aptitus\Fairs\Domain\Model\Fairs\Fair']
+  company.fair.repository:
+      class: Aptitus\Fairs\Infrastructure\Persistence\Doctrine\DoctrineCompanyFairRepository
+      arguments: ['@doctrine.orm.entity_manager', 'Aptitus\Fairs\Domain\Model\Fairs\CompanyFair']
+
+  apt.fair.exception.listener:
+      class: Aptitus\Fairs\Common\EventListener\ExceptionListener
+      tags:
+        - { name: kernel.event_listener, event: kernel.exception,  method: onKernelException, priority: 3 }
+
+  apt.fair.token.listener:
+        class: Aptitus\Fairs\Common\EventListener\TokenListener
+        arguments: ['@encrypt.jwt.service']
+        tags:
+          - { name: kernel.event_listener, event: kernel.controller,  method: onKernelController, priority: 3 }
+
+  s3.file:
+     class: Aptitus\Fairs\Infrastructure\Persistence\S3\S3FileRepository
+     arguments: ['@aws.s3', '%aws.s3%']
+  stand_type.service:
+      class: Aptitus\Fairs\Application\Base\StandTypeService
+      arguments: ['@stand_type_model.repository', '@stand_type_amphitryon.repository', '@stand_type_rule.repository']
+
+  stand_type_model.repository:
+    class: Aptitus\Fairs\Infrastructure\Persistence\Doctrine\DoctrineStandTypeModelRepository
+    arguments: ['@doctrine.orm.entity_manager', 'Aptitus\Fairs\Domain\Model\Fairs\StandTypeModel']
+
+  stand_type_amphitryon.repository:
+    class: Aptitus\Fairs\Infrastructure\Persistence\Doctrine\DoctrineStandTypeAmphitryonRepository
+    arguments: ['@doctrine.orm.entity_manager', 'Aptitus\Fairs\Domain\Model\Fairs\StandTypeAmphitryon']
+
+  stand_type_rule.repository:
+    class: Aptitus\Fairs\Infrastructure\Persistence\Doctrine\DoctrineStandTypeRuleRepository
+    arguments: ['@doctrine.orm.entity_manager', 'Aptitus\Fairs\Domain\Model\Fairs\StandTypeRule']
+
+  company.repository:
+    class: Aptitus\Fairs\Infrastructure\Persistence\Doctrine\DoctrineCompanyRepository
+    arguments: ['@doctrine.orm.entity_manager', 'Aptitus\Fairs\Domain\Model\Customers\Company']
+
+  company_fair.repository:
+    class: Aptitus\Fairs\Infrastructure\Persistence\Doctrine\DoctrineCompanyFairRepository
+    arguments: ['@doctrine.orm.entity_manager', 'Aptitus\Fairs\Domain\Model\Fairs\CompanyFair']
+
+  stand.repository:
+    class: Aptitus\Fairs\Infrastructure\Persistence\Doctrine\DoctrineStandRepository
+    arguments: ['@doctrine.orm.entity_manager', 'Aptitus\Fairs\Domain\Model\Fairs\Stand']
+
+  stand_type.repository:
+      class: Aptitus\Fairs\Infrastructure\Persistence\Doctrine\DoctrineStandTypeRepository
+      arguments: ['@doctrine.orm.entity_manager', 'Aptitus\Fairs\Domain\Model\Fairs\StandType']
+
+  stand_model.repository:
+      class: Aptitus\Fairs\Infrastructure\Persistence\Doctrine\DoctrineStandModelRepository
+      arguments: ['@doctrine.orm.entity_manager', 'Aptitus\Fairs\Domain\Model\Fairs\StandModel']
+
+  stand_amphitryon.repository:
+      class: Aptitus\Fairs\Infrastructure\Persistence\Doctrine\DoctrineStandAmphitryonRepository
+      arguments: ['@doctrine.orm.entity_manager', 'Aptitus\Fairs\Domain\Model\Fairs\StandAmphitryon']
+
+  profile.repository:
+    class: Aptitus\Fairs\Infrastructure\Persistence\Doctrine\DoctrineProfileRepository
+    arguments: ['@doctrine.orm.entity_manager', 'Aptitus\Fairs\Domain\Model\Fairs\Profile']
+
+  social_media.repository:
+    class: Aptitus\Fairs\Infrastructure\Persistence\Doctrine\DoctrineSocialMediaRepository
+    arguments: ['@doctrine.orm.entity_manager', 'Aptitus\Fairs\Domain\Model\Fairs\SocialMedia']
+
+  image_gallery.repository:
+    class: Aptitus\Fairs\Infrastructure\Persistence\Doctrine\DoctrineImageGalleryRepository
+    arguments: ['@doctrine.orm.entity_manager', 'Aptitus\Fairs\Domain\Model\Fairs\ImageGallery']
+
+  document.repository:
+    class: Aptitus\Fairs\Infrastructure\Persistence\Doctrine\DoctrineDocumentRepository
+    arguments: ['@doctrine.orm.entity_manager', 'Aptitus\Fairs\Domain\Model\Fairs\Document']
+
+  stand_image.repository:
+    class: Aptitus\Fairs\Infrastructure\Persistence\Doctrine\DoctrineStandImageRepository
+    arguments: ['@doctrine.orm.entity_manager', 'Aptitus\Fairs\Domain\Model\Fairs\StandImage']
+
+  stand_color.repository:
+    class: Aptitus\Fairs\Infrastructure\Persistence\Doctrine\DoctrineStandColorRepository
+    arguments: ['@doctrine.orm.entity_manager', 'Aptitus\Fairs\Domain\Model\Fairs\StandColor']
+
+  stand_video.repository:
+    class: Aptitus\Fairs\Infrastructure\Persistence\Doctrine\DoctrineStandVideoRepository
+    arguments: ['@doctrine.orm.entity_manager', 'Aptitus\Fairs\Domain\Model\Fairs\StandVideo']
+
+  sponsor.repository:
+    class: Aptitus\Fairs\Infrastructure\Persistence\Doctrine\DoctrineSponsorRepository
+    arguments: ['@doctrine.orm.entity_manager', 'Aptitus\Fairs\Domain\Model\Fairs\Sponsor']
+
+  sponsor.fair.repository:
+      class: Aptitus\Fairs\Infrastructure\Persistence\Doctrine\DoctrineSponsorFairRepository
+      arguments: ['@doctrine.orm.entity_manager', 'Aptitus\Fairs\Domain\Model\Fairs\SponsorFair']
+
+  # HTTP
+  http.job_search.repository:
+      class: Aptitus\Fairs\Infrastructure\Persistence\Http\HttpJobSearchRepository
+      arguments: ['@guzzle.client.api_aptitus']
+
+  http.education.repository:
+    class: Aptitus\Fairs\Infrastructure\Persistence\Http\HttpEducationRepository
+    arguments: ['@guzzle.client.api_education']
+
+  fairs.feed.service:
+      class: Aptitus\Fairs\Application\Base\FeedService
+      arguments: ['@company.fair.repository', '@http.job_search.repository', '@file.service', '@log.service', '%app%']
+
+  fairs.education.feed.service:
+    class: Aptitus\Fairs\Application\Base\FeedExpoGradosService
+    arguments: ['@company.repository', '@http.education.repository', '@file.service', '@log.service', '%app%']

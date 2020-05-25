@@ -1,0 +1,11 @@
+Aptitus\Fairs\Domain\Model\File\File:
+    properties:
+        content:
+            - NotNull: {message: el campo content es requerido }
+            - File:
+                 mimeTypes: [application/*, image/*]
+                 mimeTypesMessage: no es un binario correcto
+Aptitus\Fairs\Application\Fairs\Company\Data\CompanyInput:
+     properties:
+         documentNumber:
+             - NotNull: {message: el campo content es requerido }

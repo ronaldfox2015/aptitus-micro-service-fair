@@ -1,0 +1,44 @@
+Aptitus\Fairs\Domain\Model\Fairs\Fair:
+    type: entity
+    table: fair
+    name: Fair
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            nullable: true
+            type: string
+            length: 100
+        image:
+            nullable: true
+            column: image
+            type: string
+            length: 100
+        slogan:
+            nullable: true
+            type: string
+            length: 250
+        startDate:
+            nullable: true
+            column: start_date
+            type: datetime
+        endDate:
+            nullable: true
+            column: end_date
+            type: datetime
+        createAt:
+            nullable: true
+            column: create_at
+            type: datetime
+        state:
+            type: boolean
+            options:
+                default: true
+    lifecycleCallbacks: {  }

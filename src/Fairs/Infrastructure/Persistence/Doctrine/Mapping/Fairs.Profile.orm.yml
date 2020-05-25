@@ -1,0 +1,26 @@
+Aptitus\Fairs\Domain\Model\Fairs\Profile:
+    type: entity
+    table: profile
+    name: Profile
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        label:
+            type: string
+            length: 50
+        description:
+            type: string
+    manyToOne:
+        companyFair:
+            targetEntity: Aptitus\Fairs\Domain\Model\Fairs\CompanyFair
+            joinColumn:
+                company_fair_id:
+                    referencedColumnName: id
+                nullable: false

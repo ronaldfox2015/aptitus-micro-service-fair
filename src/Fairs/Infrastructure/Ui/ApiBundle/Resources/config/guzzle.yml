@@ -1,0 +1,27 @@
+guzzle:
+    logging: '%kernel.debug%'
+
+    clients:
+        apt.client:
+            base_url : '%ws_services%/v1/'
+            options:
+              http_errors: false
+        api_aptitus:
+            base_url: "%api_url%"
+            options:
+              timeout: 30
+            headers:
+              Accept: "application/json"
+              Authorization: "%api_access_token%"
+        api_education:
+            base_url: "%education_url%"
+            options:
+              http_errors: false
+            headers:
+              Accept: "application/json"
+services:
+    # -------------------------------------------------------- ##
+    #            Microservicio Cliente / Guzzle
+    # -------------------------------------------------------- ##
+    apt.client:
+        alias: guzzle.client.apt.client

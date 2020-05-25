@@ -1,0 +1,8 @@
+get:
+  description: Get a <<typeName>>
+  is: [ hasResponseItem: { typeName: <<typeName>> }, hasNotFound ]
+delete:
+  description: Delete a <<typeName>>
+  is: [ hasNotFound ]
+  responses:
+    204:

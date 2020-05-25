@@ -1,0 +1,26 @@
+Aptitus\Fairs\Domain\Model\Fairs\Sponsor:
+    type: entity
+    table: sponsor
+    name: Sponsor
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        companyName:
+            type: string
+            length: 100
+            column: company_name
+        image:
+            type: string
+            length: 200
+            column: image
+        url:
+            type: string
+            column: url
+    lifecycleCallbacks: {  }

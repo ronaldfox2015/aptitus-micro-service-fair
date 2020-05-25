@@ -1,0 +1,25 @@
+imports:
+    - { resource: config_dev.yml }
+
+framework:
+    test: ~
+    session:
+        storage_id: session.storage.mock_file
+    profiler:
+        enabled: true
+        collect: false
+
+web_profiler:
+    toolbar: false
+    intercept_redirects: false
+
+#swiftmailer:
+#    disable_delivery: true
+
+doctrine:
+    dbal:
+        host:     mysql
+        port:     3306
+        dbname:   mdb_apt_fairs
+        user:     root
+        password: 1234

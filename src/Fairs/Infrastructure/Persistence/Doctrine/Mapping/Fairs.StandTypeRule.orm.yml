@@ -1,0 +1,31 @@
+Aptitus\Fairs\Domain\Model\Fairs\StandTypeRule:
+    type: entity
+    table: stand_type_rule
+    name: StandTypeRule
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+
+    fields:
+        rule:
+            type: string
+            length: 50
+        required:
+            type: boolean
+        state:
+            type: boolean
+            options:
+                default: true
+    manyToOne:
+        standType:
+            targetEntity: Aptitus\Fairs\Domain\Model\Fairs\StandType
+            joinColumn:
+                stand_type_id:
+                    referencedColumnName: id
+                nullable: false

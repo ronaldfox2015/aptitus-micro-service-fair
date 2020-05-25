@@ -1,0 +1,11 @@
+usage: Use this resourceType to represent any single item
+description: A single <<typeName>>
+get:
+  description: Get a <<typeName>>
+  is: [ hasResponseItem: { typeName: <<typeName>>Detail }, hasNotFound ]
+put:
+  description: Update a <<typeName>>
+  is: [ hasRequestItem: { typeName: <<typeName>>Request }, hasResponseItem: { typeName: Message }, hasNotFound ]
+delete:
+  description: Delete a <<typeName>>
+  is: [ hasResponseItem: { typeName: Message }, hasNotFound ]

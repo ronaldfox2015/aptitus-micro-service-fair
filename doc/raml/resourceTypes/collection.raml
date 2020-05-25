@@ -1,0 +1,11 @@
+usage: Use this to describe a resource that lists items
+description: A <<resourcePathName|!uppercamelcase>> collection
+get:
+  description: |
+    Get all <<resourcePathName|!uppercamelcase>>,
+    optionally filtered
+  is: [ hasResponseCollection: { typeName: <<typeName>> } ]
+post:
+  description: |
+    Create a new <<resourcePathName|!uppercamelcase|!singularize>>
+  is: [ hasRequestItem: { typeName: <<typeName>>Request }, hasResponseItem: { typeName: Message } ]

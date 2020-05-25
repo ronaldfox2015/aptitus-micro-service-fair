@@ -1,0 +1,31 @@
+description: |
+  Api Payment supports OAuth 2.0 for authenticating all API requests.
+type: OAuth 2.0
+describedBy:
+  headers:
+    Authorization:
+      description: |
+        Used to send a valid OAuth 2 access token. Don't use
+        with the "access_token" query string parameter.
+      type: string
+  queryParameters:
+    access_token:
+      description: |
+        Used to send a valid OAuth 2 access token. Don't use
+        together with the "Authorization" header.
+      type: string
+  responses:
+    401:
+      description: |
+        Bad or expired token. This can happen if the user or Api Payment
+        revoked or expired an access token. To fix, you should
+        reauthenticate the user.
+    403:
+      description: |
+        Bad OAuth request (wrong consumer key, bad nonce, expired
+        timestamp...). Unfortunately, re-authenticating the user won't help
+        here.
+settings:
+  authorizationUri: https://services.aptitus.com/{version}/payment/oauth2/authorize
+  accessTokenUri: https://services.aptitus.com/{version}/payment/oauth2/token
+  authorizationGrants: [client_credentials, password]

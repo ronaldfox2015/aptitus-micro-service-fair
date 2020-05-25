@@ -1,0 +1,42 @@
+Aptitus\Fairs\Domain\Model\Fairs\SponsorFair:
+    type: entity
+    table: sponsor_fair
+    name: SponsorFair
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        category:
+            type: string
+            length: 100
+            column: category
+        state:
+            type: boolean
+            options:
+                default: true
+            column: state
+        mapping:
+            type: string
+            column: mapping
+        mappingTablet:
+            type: string
+            column: mapping_tablet
+    manyToOne:
+        sponsor:
+            targetEntity: Aptitus\Fairs\Domain\Model\Fairs\Sponsor
+            joinColumn:
+                sponsor_id:
+                    referencedColumnName: id
+                nullable: false
+        fair:
+            targetEntity: Aptitus\Fairs\Domain\Model\Fairs\Fair
+            joinColumn:
+                fair_id:
+                    referencedColumnName: id
+                nullable: false

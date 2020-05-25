@@ -1,0 +1,39 @@
+Aptitus\Fairs\Domain\Model\Users\User:
+    type: entity
+    table: user
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            length: 100
+        surname:
+            type: string
+            length: 100
+        rol:
+            type: string
+            length: 10
+        email:
+            type: string
+            length: 100
+        password:
+            type: string
+            length: 100
+        createdAt:
+            type: datetime
+            column: created_at
+        lastDateLogin:
+            type: datetime
+            column: last_date_login
+        state:
+            type: boolean
+            options:
+                default: true
+    lifecycleCallbacks: {  }

@@ -1,0 +1,50 @@
+[
+  {
+    "id": 2,
+    "name": "Banco Hipotecario SA",
+    "trade_name": "BANCO HIPOTECARIO",
+    "slug": "banco-hipotecario2",
+    "image": "https://dev.cde.expo.aptitus.g3c.pe/logo/fair-ba0342ca699136bf9d77276ba718b9b0.jpg",
+    "category": "Empleo",
+    "industry": "Banca y Entidades Financieras",
+    "document_number": "20100041872",
+    "model": "Modelo 3",
+    "stand": "ORO"
+  },
+  {
+    "id": 1,
+    "name": "Gas Y Electricidad Peru SA",
+    "trade_name": "Gas Y Electricidad Peru",
+    "slug": "gas-electricidad",
+    "image": "https://dev.cde.expo.aptitus.g3c.pe/logo/fair-ba0342ca699136bf9d77276ba718b9b0.jpg",
+    "category": "Empleo",
+    "industry": "Agricultura",
+    "document_number": "20520603892",
+    "model": "Modelo 1",
+    "stand": "ORO"
+  },
+  {
+    "id": 63,
+    "name": "Tuesta Crisanto, Maribel SAC",
+    "trade_name": "Tuesta Crisanto, Maribel",
+    "slug": "tuesta-crisanto-maribel",
+    "image": "https://dev.cde.expo.aptitus.g3c.pe/logo/fair-ba0342ca699136bf9d77276ba718b9b0.jpg",
+    "category": "Empleo",
+    "industry": "Seguridad",
+    "document_number": "10230203267",
+    "model": "Modelo 4",
+    "stand": "ORO"
+  },
+  {
+    "id": 69,
+    "name": "Paul Taboada SA",
+    "trade_name": "Paul Taboada",
+    "slug": "luis-mercado-medina",
+    "image": "https://dev.cde.expo.aptitus.g3c.pe/logo/fair-c8d6de8b3d4ab05767a999f52c9b11a4.png",
+    "category": "Empleo",
+    "industry": "Tecnología y sistemas.",
+    "document_number": "10458164326",
+    "model": "Modelo 8",
+    "stand": "PLATA"
+  }
+]

@@ -1,0 +1,1038 @@
+parameters:
+    amphitryons:
+        amphitryon1: '%aws_s3_cds%images/stands/anfitriona1.png?v=%static_version%'
+        amphitryon2: '%aws_s3_cds%images/stands/anfitriona2.png?v=%static_version%'
+        amphitryon3: '%aws_s3_cds%images/stands/anfitriona3.png?v=%static_version%'
+        amphitryon4: '%aws_s3_cds%images/stands/anfitriona4.png?v=%static_version%'
+        amphitryon5: '%aws_s3_cds%images/stands/anfitriona5.png?v=%static_version%'
+        amphitryon6: '%aws_s3_cds%images/stands/anfitriona6.png?v=%static_version%'
+
+    models:
+        model1:
+            imageStandsSize: 8
+            height: 458
+            width: 854
+            drawOrder:
+            - type: rectangle
+              alias: bottom
+            - type: image
+              alias: amphitryon
+            - type: image
+              alias: monitor
+            - type: image
+              alias: imageBase
+            - type: rectangle
+              alias: top
+            - type: rectangle
+              alias: pole
+            - type: image
+              alias: top
+            - type: image
+              alias: banderole_1
+            - type: image
+              alias: banderole_2
+            - type: image
+              alias: counter
+            - type: image
+              alias: totem
+            imageStands:
+                imageBase:
+                    source: '%aws_s3_cds%images/stands/oro1.png?v=%static_version%'
+                    position_x: 0
+                    position_y: 0
+                    size_width: 1
+                    size_height: 1
+                amphitryon:
+                    source: ''
+                    position_x: 526
+                    position_y: 185
+                    size_width: 0.12
+                    size_height: 0.50
+                top:
+                    source: ''
+                    position_x: 100
+                    position_y: 15
+                    size_width: 0.715
+                    size_height: 0.118
+                banderole_1:
+                    source: ''
+                    position_x: 11
+                    position_y: 179.5
+                    size_width: 0.071
+                    size_height: 0.393
+                banderole_2:
+                    source: ''
+                    position_x: 785.5
+                    position_y: 179.5
+                    size_width: 0.071
+                    size_height: 0.393
+                monitor:
+                    source: ''
+                    position_x: 232.5
+                    position_y: 157
+                    size_width: 0.235
+                    size_height: 0.253
+                counter:
+                    source: ''
+                    position_x: 517
+                    position_y: 310
+                    size_width: 0.139
+                    size_height: 0.167
+                totem:
+                    source: ''
+                    position_x: 123.3
+                    position_y: 185.5
+                    size_width: 0.108
+                    size_height: 0.391
+            pathsStands:
+                top:
+                    width: 670
+                    height: 65.5
+                    posX: 94
+                    posY: 10
+                    type: color_1
+                pole:
+                    width: 51
+                    height: 336
+                    posX: 713
+                    posY: 75
+                    type: color_1
+                bottom:
+                    width: 536
+                    height: 252
+                    posX: 159.5
+                    posY: 130
+                    type: color_2
+        model2:
+            imageStandsSize: 8
+            height: 458
+            width: 854
+            drawOrder:
+            - type: rectangle
+              alias: bottom
+            - type: rectangle
+              alias: top
+            - type: image
+              alias: top
+            - type: image
+              alias: amphitryon
+            - type: image
+              alias: monitor
+            - type: image
+              alias: imageBase
+            - type: image
+              alias: banderole_1
+            - type: image
+              alias: banderole_2
+            - type: image
+              alias: counter
+            - type: image
+              alias: totem
+            imageStands:
+                imageBase:
+                    source: '%aws_s3_cds%images/stands/oro2.png?v=%static_version%'
+                    position_x: 0
+                    position_y: 0
+                    size_width: 1
+                    size_height: 1
+                amphitryon:
+                    source: ''
+                    position_x: 214
+                    position_y: 179
+                    size_width: 0.12
+                    size_height: 0.50
+                top:
+                    source: ''
+                    position_x: 122
+                    position_y: 38
+                    size_width: 0.710
+                    size_height: 0.140
+                banderole_1:
+                    source: ''
+                    position_x: 31.5
+                    position_y: 179
+                    size_width: 0.071
+                    size_height: 0.393
+                banderole_2:
+                    source: ''
+                    position_x: 762.5
+                    position_y: 179.5
+                    size_width: 0.071
+                    size_height: 0.393
+                monitor:
+                    source: ''
+                    position_x: 389
+                    position_y: 157
+                    size_width: 0.235
+                    size_height: 0.253
+                counter:
+                    source: ''
+                    position_x: 237
+                    position_y: 318
+                    size_width: 0.145
+                    size_height: 0.16
+                totem:
+                    source: ''
+                    position_x: 611
+                    position_y: 194
+                    size_width: 0.106
+                    size_height: 0.404
+            pathsStands:
+                top:
+                    width: 620
+                    height: 76
+                    posX: 115
+                    posY: 32.5
+                    type: color_1
+                bottom:
+                    width: 530
+                    height: 275
+                    posX: 161
+                    posY: 108
+                    type: color_2
+        model3:
+            imageStandsSize: 8
+            height: 458
+            width: 854
+            drawOrder:
+            - type: rectangle
+              alias: bottom
+            - type: rectangle
+              alias: top
+            - type: image
+              alias: top
+            - type: image
+              alias: monitor
+            - type: image
+              alias: imageBase
+            - type: diagonal
+              alias: diagonal_top_1
+            - type: diagonal
+              alias: diagonal_top_2
+            - type: diagonal
+              alias: pole_1
+            - type: diagonal
+              alias: pole_2
+            - type: image
+              alias: amphitryon
+            - type: image
+              alias: banderole_1
+            - type: image
+              alias: banderole_2
+            - type: image
+              alias: counter
+            - type: image
+              alias: totem
+            imageStands:
+                imageBase:
+                    source: '%aws_s3_cds%images/stands/oro3.png?v=%static_version%'
+                    position_x: 0
+                    position_y: 0
+                    size_width: 1
+                    size_height: 1
+                amphitryon:
+                    source: ''
+                    position_x: 587
+                    position_y: 183
+                    size_width: 0.12
+                    size_height: 0.50
+                top:
+                    source: ''
+                    position_x: 125
+                    position_y: 35
+                    size_width: 0.710
+                    size_height: 0.113
+                banderole_1:
+                    source: ''
+                    position_x: 41
+                    position_y: 179.5
+                    size_width: 0.071
+                    size_height: 0.393
+                banderole_2:
+                    source: ''
+                    position_x: 752
+                    position_y: 179.5
+                    size_width: 0.071
+                    size_height: 0.393
+                monitor:
+                    source: ''
+                    position_x: 327.5
+                    position_y: 134
+                    size_width: 0.235
+                    size_height: 0.253
+                counter:
+                    source: ''
+                    position_x: 371
+                    position_y: 311
+                    size_width: 0.139
+                    size_height: 0.167
+                totem:
+                    source: ''
+                    position_x: 172
+                    position_y: 194.5
+                    size_width: 0.108
+                    size_height: 0.391
+            pathsStands:
+                top:
+                    width: 623.3
+                    height: 63
+                    posX: 116.4
+                    posY: 31
+                    type: color_1
+                bottom:
+                    width: 442
+                    height: 273
+                    posX: 207
+                    posY: 108
+                    type: color_2
+                diagonal_top_1:
+                    pos1:
+                    - 125
+                    - 96
+                    pos2:
+                    - 189
+                    - 96
+                    pos3:
+                    - 203.5
+                    - 108
+                    pos4:
+                    - 203.5
+                    - 162
+                    type: color_1
+                diagonal_top_2:
+                    pos1:
+                    - 653
+                    - 108
+                    pos2:
+                    - 667
+                    - 96
+                    pos3:
+                    - 732
+                    - 96
+                    pos4:
+                    - 653
+                    - 161
+                    type: color_1
+                pole_1:
+                    pos1:
+                    - 116
+                    - 95
+                    pos2:
+                    - 125
+                    - 95
+                    pos3:
+                    - 125
+                    - 420
+                    pos4:
+                    - 116
+                    - 420
+                    type: color_1
+                pole_2:
+                    pos1:
+                    - 730.5
+                    - 95
+                    pos2:
+                    - 739.5
+                    - 95
+                    pos3:
+                    - 739.5
+                    - 420
+                    pos4:
+                    - 730.5
+                    - 420
+                    type: color_1
+        model4:
+            imageStandsSize: 8
+            height: 458
+            width: 854
+            drawOrder:
+            - type: rectangle
+              alias: bottom
+            - type: diagonal
+              alias: diagonal_top_1
+            - type: rectangle
+              alias: top
+            - type: image
+              alias: top
+            - type: rectangle
+              alias: top_bar
+            - type: image
+              alias: monitor
+            - type: image
+              alias: imageBase
+            - type: image
+              alias: amphitryon
+            - type: image
+              alias: banderole_1
+            - type: image
+              alias: banderole_2
+            - type: image
+              alias: counter
+            - type: image
+              alias: totem
+            imageStands:
+                imageBase:
+                    source: '%aws_s3_cds%images/stands/oro4.png?v=%static_version%'
+                    position_x: 0
+                    position_y: 0
+                    size_width: 1
+                    size_height: 1
+                amphitryon:
+                    source: ''
+                    position_x: 180
+                    position_y: 186
+                    size_width: 0.12
+                    size_height: 0.50
+                top:
+                    source: ''
+                    position_x: 137
+                    position_y: 43
+                    size_width: 0.708
+                    size_height: 0.112
+                banderole_1:
+                    source: ''
+                    position_x: 70
+                    position_y: 179.5
+                    size_width: 0.071
+                    size_height: 0.393
+                banderole_2:
+                    source: ''
+                    position_x: 750.5
+                    position_y: 179.5
+                    size_width: 0.071
+                    size_height: 0.393
+                monitor:
+                    source: ''
+                    position_x: 344.5
+                    position_y: 134
+                    size_width: 0.235
+                    size_height: 0.253
+                counter:
+                    source: ''
+                    position_x: 384
+                    position_y: 320
+                    size_width: 0.139
+                    size_height: 0.167
+                totem:
+                    source: ''
+                    position_x: 604
+                    position_y: 183
+                    size_width: 0.108
+                    size_height: 0.391
+            pathsStands:
+                top_bar:
+                    width: 750
+                    height: 10
+                    posX: 66.3
+                    posY: 21
+                    type: color_1
+                top:
+                    width: 619
+                    height: 60
+                    posX: 129.5
+                    posY: 39
+                    type: color_1
+                bottom:
+                    width: 424.5
+                    height: 284
+                    posX: 228
+                    posY: 98
+                    type: color_2
+                diagonal_top_1:
+                    pos1:
+                    - 67
+                    - 31
+                    pos2:
+                    - 816
+                    - 31
+                    pos3:
+                    - 748
+                    - 52
+                    pos4:
+                    - 130
+                    - 52
+                    type: color_1
+        model5:
+            imageStandsSize: 8
+            height: 458
+            width: 854
+            drawOrder:
+            - type: rectangle
+              alias: bottom
+            - type: rectangle
+              alias: top
+            - type: image
+              alias: top
+            - type: diagonal
+              alias: diagonal_top_1
+            - type: diagonal
+              alias: diagonal_top_2
+            - type: image
+              alias: monitor
+            - type: image
+              alias: imageBase
+            - type: diagonal
+              alias: pole_1
+            - type: diagonal
+              alias: pole_2
+            - type: image
+              alias: amphitryon
+            - type: image
+              alias: banderole_1
+            - type: image
+              alias: banderole_2
+            - type: image
+              alias: counter
+            - type: image
+              alias: totem
+            imageStands:
+                imageBase:
+                    source: '%aws_s3_cds%images/stands/oro5.png?v=%static_version%'
+                    position_x: 0
+                    position_y: 0
+                    size_width: 1
+                    size_height: 1
+                amphitryon:
+                    source: ''
+                    position_x: 633
+                    position_y: 182
+                    size_width: 0.12
+                    size_height: 0.50
+                top:
+                    source: ''
+                    position_x: 117
+                    position_y: 41
+                    size_width: 0.729
+                    size_height: 0.112
+                banderole_1:
+                    source: ''
+                    position_x: 27.5
+                    position_y: 179.5
+                    size_width: 0.071
+                    size_height: 0.393
+                banderole_2:
+                    source: ''
+                    position_x: 776.5
+                    position_y: 179.5
+                    size_width: 0.071
+                    size_height: 0.393
+                monitor:
+                    source: ''
+                    position_x: 374.5
+                    position_y: 135.7
+                    size_width: 0.235
+                    size_height: 0.253
+                counter:
+                    source: ''
+                    position_x: 420.5
+                    position_y: 320
+                    size_width: 0.139
+                    size_height: 0.167
+                totem:
+                    source: ''
+                    position_x: 182.5
+                    position_y: 196
+                    size_width: 0.108
+                    size_height: 0.391
+            pathsStands:
+                top:
+                    width: 639
+                    height: 60
+                    posX: 109
+                    posY: 37
+                    type: color_1
+                bottom:
+                    width: 531
+                    height: 282
+                    posX: 163
+                    posY: 98
+                    type: color_2
+                diagonal_top_1:
+                    pos1:
+                    - 114
+                    - 98
+                    pos2:
+                    - 158.5
+                    - 98
+                    pos3:
+                    - 158.5
+                    - 135
+                    pos4:
+                    - 114
+                    - 98
+                    type: color_1
+                diagonal_top_2:
+                    pos1:
+                    - 698
+                    - 99
+                    pos2:
+                    - 739
+                    - 99
+                    pos3:
+                    - 739
+                    - 102
+                    pos4:
+                    - 698
+                    - 134
+                    type: color_1
+                pole_1:
+                    pos1:
+                    - 109
+                    - 98
+                    pos2:
+                    - 118
+                    - 98
+                    pos3:
+                    - 118
+                    - 394.5
+                    pos4:
+                    - 109
+                    - 397
+                    type: color_1
+                pole_2:
+                    pos1:
+                    - 739
+                    - 98
+                    pos2:
+                    - 748
+                    - 98
+                    pos3:
+                    - 748
+                    - 397
+                    pos4:
+                    - 739
+                    - 394.5
+                    type: color_1
+        model6:
+            imageStandsSize: 8
+            height: 458
+            width: 854
+            drawOrder:
+            - type: rectangle
+              alias: top
+            - type: image
+              alias: top
+            - type: rectangle
+              alias: bottom
+            - type: image
+              alias: amphitryon
+            - type: image
+              alias: monitor
+            - type: image
+              alias: imageBase
+            - type: image
+              alias: poster_1
+            - type: image
+              alias: poster_2
+            - type: image
+              alias: counter
+            - type: image
+              alias: totem
+            imageStands:
+                imageBase:
+                    source: '%aws_s3_cds%images/stands/plata1.png?v=%static_version%'
+                    position_x: 0
+                    position_y: 0
+                    size_width: 1
+                    size_height: 1
+                amphitryon:
+                    source: ''
+                    position_x: 450
+                    position_y: 177
+                    size_width: 0.12
+                    size_height: 0.50
+                top:
+                    source: ''
+                    position_x: 122
+                    position_y: 38
+                    size_width: 0.710
+                    size_height: 0.140
+                poster_1:
+                    source: ''
+                    position_x: 40
+                    position_y: 174
+                    size_width: 0.113
+                    size_height: 0.188
+                poster_2:
+                    source: ''
+                    position_x: 40
+                    position_y: 280
+                    size_width: 0.113
+                    size_height: 0.188
+                monitor:
+                    source: ''
+                    position_x: 188
+                    position_y: 157
+                    size_width: 0.235
+                    size_height: 0.253
+                counter:
+                    source: ''
+                    position_x: 478.4
+                    position_y: 319
+                    size_width: 0.145
+                    size_height: 0.160
+                totem:
+                    source: ''
+                    position_x: 738
+                    position_y: 244
+                    size_width: 0.107
+                    size_height: 0.396
+            pathsStands:
+                top:
+                    width: 620
+                    height: 76
+                    posX: 115
+                    posY: 32.5
+                    type: color_1
+                bottom:
+                    width: 530
+                    height: 276
+                    posX: 162
+                    posY: 107
+                    type: color_2
+        model7:
+            imageStandsSize: 8
+            height: 458
+            width: 854
+            drawOrder:
+            - type: rectangle
+              alias: top
+            - type: image
+              alias: top
+            - type: rectangle
+              alias: bottom
+            - type: image
+              alias: monitor
+            - type: image
+              alias: imageBase
+            - type: rectangle
+              alias: pole_1
+            - type: rectangle
+              alias: pole_2
+            - type: image
+              alias: poster_1
+            - type: image
+              alias: poster_2
+            - type: image
+              alias: counter
+            - type: image
+              alias: totem
+            - type: image
+              alias: amphitryon
+            imageStands:
+                imageBase:
+                    source: '%aws_s3_cds%images/stands/plata2.png?v=%static_version%'
+                    position_x: 0
+                    position_y: 0
+                    size_width: 1
+                    size_height: 1
+                amphitryon:
+                    source: ''
+                    position_x: 258
+                    position_y: 183
+                    size_width: 0.12
+                    size_height: 0.50
+                    flip: true
+                top:
+                    source: ''
+                    position_x: 138
+                    position_y: 36
+                    size_width: 0.683
+                    size_height: 0.113
+                poster_1:
+                    source: ''
+                    position_x: 221
+                    position_y: 130
+                    size_width: 0.112
+                    size_height: 0.187
+                poster_2:
+                    source: ''
+                    position_x: 545
+                    position_y: 130
+                    size_width: 0.112
+                    size_height: 0.187
+                monitor:
+                    source: ''
+                    position_x: 330
+                    position_y: 134
+                    size_width: 0.235
+                    size_height: 0.253
+                counter:
+                    source: ''
+                    position_x: 374
+                    position_y: 315
+                    size_width: 0.146
+                    size_height: 0.157
+                totem:
+                    source: ''
+                    position_x: 674
+                    position_y: 243
+                    size_width: 0.112
+                    size_height: 0.399
+            pathsStands:
+                top:
+                    width: 623
+                    height: 63
+                    posX: 119
+                    posY: 31
+                    type: color_1
+                pole_1:
+                    width: 8
+                    height: 326
+                    posX: 119
+                    posY: 95
+                    type: color_1
+                pole_2:
+                    width: 8.1
+                    height: 146
+                    posX: 734
+                    posY: 95
+                    type: color_1
+                bottom:
+                    width: 442
+                    height: 276
+                    posX: 209
+                    posY: 107
+                    type: color_2
+                diagonal_top_1:
+                    pos1:
+                    - 47
+                    - 76.5
+                    pos2:
+                    - 114
+                    - 76.5
+                    pos3:
+                    - 129.5
+                    - 90
+                    pos4:
+                    - 129.5
+                    - 145.5
+                    type: color_1
+                diagonal_top_2:
+                    pos1:
+                    - 592.7
+                    - 76.5
+                    pos2:
+                    - 659.7
+                    - 76.5
+                    pos3:
+                    - 577.2
+                    - 145.5
+                    pos4:
+                    - 577.2
+                    - 90
+                    type: color_1
+        model8:
+            imageStandsSize: 8
+            height: 458
+            width: 854
+            drawOrder:
+            - type: rectangle
+              alias: bottom
+            - type: diagonal
+              alias: diagonal_top_1
+            - type: rectangle
+              alias: top_2
+            - type: image
+              alias: top
+            - type: image
+              alias: monitor
+            - type: image
+              alias: imageBase
+            - type: rectangle
+              alias: top_1
+            - type: image
+              alias: poster_1
+            - type: image
+              alias: poster_2
+            - type: image
+              alias: counter
+            - type: image
+              alias: totem
+            - type: image
+              alias: amphitryon
+            imageStands:
+                imageBase:
+                    source: '%aws_s3_cds%images/stands/plata3.png?v=%static_version%'
+                    position_x: 0
+                    position_y: 0
+                    size_width: 1
+                    size_height: 1
+                amphitryon:
+                    source: ''
+                    position_x: 176
+                    position_y: 180
+                    size_width: 0.12
+                    size_height: 0.50
+                top:
+                    source: ''
+                    position_x: 137
+                    position_y: 44
+                    size_width: 0.705
+                    size_height: 0.110
+                poster_1:
+                    source: ''
+                    position_x: 68
+                    position_y: 171
+                    size_width: 0.113
+                    size_height: 0.188
+                poster_2:
+                    source: ''
+                    position_x: 68
+                    position_y: 277
+                    size_width: 0.113
+                    size_height: 0.188
+                monitor:
+                    source: ''
+                    position_x: 345
+                    position_y: 134
+                    size_width: 0.235
+                    size_height: 0.253
+                counter:
+                    source: ''
+                    position_x: 381
+                    position_y: 322
+                    size_width: 0.146
+                    size_height: 0.158
+                totem:
+                    source: ''
+                    position_x: 605.4
+                    position_y: 184
+                    size_width: 0.106
+                    size_height: 0.390
+            pathsStands:
+                top_1:
+                    width: 753.7
+                    height: 10
+                    posX: 63
+                    posY: 21
+                    type: color_1
+                top_2:
+                    width: 619
+                    height: 60
+                    posX: 130
+                    posY: 39
+                    type: color_1
+                bottom:
+                    width: 427
+                    height: 285.7
+                    posX: 226
+                    posY: 99
+                    type: color_2
+                diagonal_top_1:
+                    pos1:
+                    - 67
+                    - 32
+                    pos2:
+                    - 814
+                    - 32
+                    pos3:
+                    - 746.7
+                    - 53
+                    pos4:
+                    - 126.2
+                    - 50
+                    type: color_1
+        model9:
+            imageStandsSize: 7
+            height: 458
+            width: 854
+            drawOrder:
+            - type: rectangle
+              alias: bottom
+            - type: diagonal
+              alias: diagonal_top_1
+            - type: rectangle
+              alias: top_2
+            - type: image
+              alias: top
+            - type: image
+              alias: monitor
+            - type: image
+              alias: imageBase
+            - type: rectangle
+              alias: top_1
+            - type: image
+              alias: poster_1
+            - type: image
+              alias: banderole_1
+            - type: image
+              alias: counter
+            - type: image
+              alias: amphitryon
+            imageStands:
+                imageBase:
+                    source: '%aws_s3_cds%images/stands/bronce1.png?v=%static_version%'
+                    position_x: 0
+                    position_y: 0
+                    size_width: 1
+                    size_height: 1
+                amphitryon:
+                    source: ''
+                    position_x: 173
+                    position_y: 180
+                    size_width: 0.12
+                    size_height: 0.50
+                top:
+                    source: ''
+                    position_x: 137
+                    position_y: 44
+                    size_width: 0.705
+                    size_height: 0.110
+                poster_1:
+                    source: ''
+                    position_x: 307
+                    position_y: 130
+                    size_width: 0.113
+                    size_height: 0.188
+                banderole_1:
+                    source: ''
+                    position_x: 697
+                    position_y: 136
+                    size_width: 0.071
+                    size_height: 0.393
+                monitor:
+                    source: ''
+                    position_x: 418
+                    position_y: 129
+                    size_width: 0.180
+                    size_height: 0.193
+                counter:
+                    source: ''
+                    position_x: 381
+                    position_y: 321
+                    size_width: 0.146
+                    size_height: 0.164
+            pathsStands:
+                top_1:
+                    width: 753.7
+                    height: 10
+                    posX: 63
+                    posY: 21
+                    type: color_1
+                top_2:
+                    width: 616
+                    height: 60
+                    posX: 130
+                    posY: 39
+                    type: color_1
+                bottom:
+                    width: 427
+                    height: 285.7
+                    posX: 226
+                    posY: 99
+                    type: color_2
+                diagonal_top_1:
+                    pos1:
+                    - 67
+                    - 32
+                    pos2:
+                    - 814
+                    - 32
+                    pos3:
+                    - 746.7
+                    - 53
+                    pos4:
+                    - 126.2
+                    - 50
+                    type: color_1

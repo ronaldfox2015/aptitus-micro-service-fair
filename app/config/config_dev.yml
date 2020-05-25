@@ -1,0 +1,26 @@
+imports:
+    - { resource: config.yml }
+
+framework:
+    profiler: { only_exceptions: false }
+
+web_profiler:
+    toolbar: true
+    intercept_redirects: false
+
+monolog:
+
+    handlers:
+        main:
+            type: stream
+            path: "%kernel.logs_dir%/%kernel.environment%.log"
+            level: error
+            channels: ['!event', '!doctrine', '!debug']
+            # handler: custom
+        console:
+            type:   console
+            channels: ['!event', '!doctrine']
+            # handler: custom
+        #custom:
+        #    type: service
+        #    id: monolog_cloudwatch_handler

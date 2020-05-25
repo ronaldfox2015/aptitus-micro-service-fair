@@ -1,0 +1,270 @@
+#%RAML 1.0
+title: Fair
+version: v1
+protocols: [HTTPS]
+baseUri: https://services.aptitus.com/{version}/fair/
+securitySchemes:
+  api_token: !include securitySchemes/api_token.raml
+mediaType: application/json
+types:
+  Error: !include types/error.raml
+  Message: !include types/message.raml
+  LoginRequest: !include types/login_request.raml
+  LoginResponse: !include types/login_response.raml
+  Fairs: !include types/fairs.raml
+  Fair: !include types/fair.raml
+  Company: !include types/company.raml
+  CompanyDetail: !include types/company_detail.raml
+  CompanyRequest: !include types/company_request.raml
+  CompanyResponse: !include types/company_response.raml
+  CompanyDeleteRequest: !include types/company_delete_request.raml
+  UploadFileRequest: !include types/upload_file_request.raml
+  UploadFileResponse: !include types/upload_file_response.raml
+  StandTypeResponse: !include types/stand_type_response.raml
+  StandModelsResponse: !include types/stand_model_response.raml
+  StandAmphitryonsResponse: !include types/stand_amphitryon_response.raml
+  Sponsor: !include types/sponsor.raml
+  SponsorRequest: !include types/sponsor.raml
+resourceTypes:
+  index: !include resourceTypes/index.raml
+  create: !include resourceTypes/create.raml
+  show: !include resourceTypes/show.raml
+  update: !include resourceTypes/update.raml
+  destroy: !include resourceTypes/destroy.raml
+  showDestroy: !include resourceTypes/show_destroy.raml
+  showUpdate: !include resourceTypes/show_update.raml
+  updateDestroy: !include resourceTypes/update_destroy.raml
+  collection: !include resourceTypes/collection.raml
+  item: !include resourceTypes/item.raml
+traits:
+  hasRequestItem: !include traits/has_request_item.raml
+  hasResponseItem: !include traits/has_response_item.raml
+  hasResponseCollection: !include traits/has_response_collection.raml
+  hasNotFound: !include traits/has_not_found.raml
+/login:
+  securedBy: api_token
+  type: { create: { typeName: Login } }
+  post:
+    responses:
+      401:
+        body:
+          application/json:
+            type: Error
+            example: !include examples/post.login.401.json
+      500:
+        description: An error has occurred on the server.
+/{fairId}:
+  /sponsors:
+    type: { collection: { typeName: Sponsor } }
+    get:
+      description: |
+        Get the sponsors of the fair.
+      queryParameters:
+        category:
+          type: string
+          description: |
+            Category for the Company in Fair, could be ["Empleo", "Educacion"]. If not define a specific category list both categories.
+          default: empty
+          required: false
+      responses:
+        200:
+          body:
+            application/json:
+              example: !include examples/get.sponsors.json
+    post:
+      description:
+        Create sponsor for the fair.
+      responses:
+        200:
+          body:
+            application/json:
+              example: !include examples/post.sponsors.json
+    /{sponsorId}:
+      get:
+        description: |
+          Get sponsor information.
+        responses:
+          200:
+            body:
+              application/json:
+                example: !include examples/get.sponsor.json
+      put:
+        body:
+          application/json:
+            type: Sponsor
+        description: |
+          Update sponsor information.
+        responses:
+          200:
+            body:
+              application/json:
+                example: !include examples/put.sponsor.request.json
+      delete:
+        responses:
+          200:
+            body:
+              application/json:
+                example: !include examples/delete.sponsor.json
+/fairs:
+  securedBy: api_token
+  type: { show: { typeName: Fairs } }
+  get:
+    description: |
+      Get list of Fairs.
+  /{fairId}:
+    securedBy: api_token
+    type: { show: { typeName: Fair } }
+    get:
+      description: |
+        Get feria detail.
+    /companies:
+      securedBy: api_token
+      type: { collection: { typeName: Company } }
+      get:
+        description: |
+          Get the companies of the fair.
+        queryParameters:
+          category:
+            type: string
+            description: |
+              Category for the Company in Fair, could be ["Empleo", "Educacion"]. If not define a specific category list both categories.
+            default: empty
+            required: false
+          sort:
+            type: string
+            description: |
+              The sort field, could be ["name", "trade_name", "stand"]
+            default: stand
+            required: false
+          order:
+            type: string
+            description: |
+              The sort order if sort parameter is provided. One of asc or desc
+            default: desc
+            required: false
+        responses:
+          200:
+            body:
+              application/json:
+                example: !include examples/get.companies.json
+      post:
+        description:
+          Create company for the fair.
+        responses:
+          200:
+            body:
+              application/json:
+                example: !include examples/post.companies.json
+      /{identifier}:
+        securedBy: api_token
+        type: { item: { typeName: Company } }
+        uriParameters:
+          identifier:
+            type: string
+            description: Could be a companyId (int) or companySlug (string)
+        get:
+          description: |
+            Get company detail.
+          queryParameters:
+            category:
+              type: string
+              description: |
+                Category for the Company in Fair, could be ["Empleo", "Educacion"]
+            preview:
+              type: string
+              description: |
+                Show a column control with the pagination in the result, could be "active".
+              default: empty
+              required: false
+        put:
+          description: |
+            Update company information.
+          queryParameters:
+            category:
+              type: string
+              description: |
+                Old Category of the Company in Fair, could be ["Empleo", "Educacion"]
+          responses:
+            200:
+              body:
+                application/json:
+                  example: !include examples/put.company.request.json
+        delete:
+          body:
+            application/json:
+              type: CompanyDeleteRequest
+          responses:
+            200:
+              body:
+                application/json:
+                  example: !include examples/delete.company.json
+    /feed/{page}:
+      securedBy: api_token
+      uriParameters:
+        page:
+          type: string
+          enum: ['facebook', 'google']
+      post:
+        description: |
+          Generate and upload jobs feed file to S3
+        responses:
+          200:
+            body:
+              application/json:
+                example: !include examples/put.feed.json
+/upload-file/{type}:
+    uriParameters:
+      type:
+        type: string
+        description: Type of file to upload. Values allowed are "image" and "document".
+    post:
+      description: |
+        Upload file a S3. Maximum allowed size is 8MB.
+
+        Use the "multipart-form/data" content type to upload a file which content will become the file.
+      body:
+        multipart/form-data:
+          properties:
+            file:
+              description: The file to be uploaded.
+              required: true
+              type: file
+            folder:
+              description: Folder to be uploaded.
+              required: true
+              type: string
+      responses:
+        200:
+          body:
+            application/json:
+              type: UploadFileResponse
+/stand-models/{modelId}:
+  securedBy: api_token
+  uriParameters:
+    modelId:
+      type: integer
+      description: Model of stand.
+  type: { show: { typeName: StandModelsResponse } }
+  get:
+    description: |
+      Returns the rules by model of stand to use in frontend views.
+/stand-amphitryons/{amphitryonId}:
+  securedBy: api_token
+  uriParameters:
+    amphitryonId:
+      type: integer
+      description: Amphitryon of stand.
+  type: { show: { typeName: StandAmphitryonsResponse } }
+  get:
+    description: |
+      Returns the stand amphitryon data to use in frontend views.
+/stand-types/{typeId}:
+  securedBy: api_token
+  uriParameters:
+    typeId:
+      type: integer
+      description: Type of stand.
+  type: { show: { typeName: StandTypeResponse } }
+  get:
+    description: |
+      Returns the model and amphitryon data, and the rules to validate according to the type of stand.

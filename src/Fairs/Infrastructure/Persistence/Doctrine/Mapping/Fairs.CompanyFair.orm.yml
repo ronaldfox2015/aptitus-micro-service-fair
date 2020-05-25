@@ -1,0 +1,53 @@
+Aptitus\Fairs\Domain\Model\Fairs\CompanyFair:
+    type: entity
+    table: company_fair
+    name: CompanyFair
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        category:
+            type: string
+            length: 100
+        industryId:
+            column: industry_id
+            type: integer
+        industryName:
+            type: string
+            column: industry_name
+            length: 100
+        state:
+            type: boolean
+            options:
+                default: true
+        mapping:
+            type: string
+            length: 300
+            column: mapping
+        mappingTablet:
+            type: string
+            length: 300
+            column: mapping_tablet
+        offerType:
+            type: string
+            length: 20
+            column: offer_type
+    manyToOne:
+        company:
+            targetEntity: Aptitus\Fairs\Domain\Model\Customers\Company
+            joinColumn:
+                company_id:
+                    referencedColumnName: id
+                nullable: false
+        fair:
+            targetEntity: Aptitus\Fairs\Domain\Model\Fairs\Fair
+            joinColumn:
+                fair_id:
+                    referencedColumnName: id
+                nullable: false
